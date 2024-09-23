@@ -25,7 +25,6 @@
   }
 
   &__familiarise {
-    font-size: 16px;
     color: #bbb;
     margin-bottom: 60px;
 
@@ -71,7 +70,6 @@
     }
 
     &-inner {
-      font-size: 16px;
       width: 209px;
       position: relative;
       display: flex;
@@ -88,7 +86,7 @@
 
       margin: 0;
       padding-bottom: 20px;
-      font-size: 16px;
+
       line-height: 1.2;
 
       @media (width >=992px) {
