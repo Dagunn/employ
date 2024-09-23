@@ -1,0 +1,53 @@
+.btn {
+  padding: 15px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 183px;
+  height: 43px;
+  border: 1px solid var(--white);
+  background: var(--blueGeneral);
+  color: var(--white);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &--white {
+    border-color: var(--borderColor);
+    color: var(--btnDark);
+    background: var(--white);
+    text-align: center;
+
+    a {
+      color: inherit;
+    }
+  }
+
+  &--reg {
+    max-width: 370px;
+    width: 100%;
+    font-size: 15px;
+    font-weight: 600;
+    height: 48px;
+    margin: 0 auto;
+  }
+}
+
+@media (hover: hover) {
+  .btn {
+    &:hover {
+      background-color: var(--hoverBtn);
+    }
+
+    &--white {
+      &:hover {
+        background-color: var(--txtHover);
+        color: var(--white);
+      }
+    }
+  }
+}

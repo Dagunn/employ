@@ -1,0 +1,36 @@
+.container {
+  max-width: 1200px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.section {
+  &-top {
+    background-image: url('../images/img/people-bg.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: var(--black);
+    padding-bottom: 60px;
+
+    @media (width >= 1024px) {
+      padding-bottom: 200px;
+    }
+  }
+
+  &-order {
+    background: #272733 url('../images/img/map-bg.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding-bottom: 90px;
+
+    @media (width >= 768px) {
+      padding-bottom: 120px;
+    }
+
+    @media (width >= 992px) {
+      padding-bottom: 150px;
+    }
+  }
+}

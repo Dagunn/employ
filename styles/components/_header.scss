@@ -1,0 +1,54 @@
+.header {
+  background: rgba(16, 16, 29, 0.9);
+  padding: 33px 0;
+  position: sticky;
+  width: 100%;
+  top: 0;
+  left: 0;
+  transition: transform 0.5s cubic-bezier(0.8, 0.2, 0.2, 0.8);
+  z-index: 3;
+  height: 100px;
+}
+
+.logo {
+  font-family: 'Raleway', Arial, Helvetica, sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  line-height: normal;
+  text-transform: uppercase;
+
+  @media (width >= 768px) {
+    font-size: 28px;
+  }
+
+  span {
+    color: var(--blueTxt);
+  }
+}
+
+.menu {
+  display: none;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: uppercase;
+
+  &__list {
+    gap: 60px;
+  }
+
+  @media (width >= 768px) {
+    display: flex;
+  }
+
+  &__link {
+    transition: color 0.3s;
+
+    @media (hover: hover) {
+      &:hover {
+        color: var(--blueHover);
+      }
+    }
+  }
+}

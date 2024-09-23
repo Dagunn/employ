@@ -1,0 +1,436 @@
+.order {
+  padding-top: 60px;
+
+  @media (width >= 768px) {
+    padding-top: 100px;
+  }
+
+  @media (width >= 992px) {
+    padding-top: 120px;
+  }
+
+  &__title {
+    font-size: 22px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+
+    @media (width >=768px) {
+      font-size: 32px;
+    }
+
+    @media (width >= 992px) {
+      font-size: 36px;
+    }
+  }
+
+  &__familiarise {
+    font-size: 16px;
+    color: #bbb;
+    margin-bottom: 60px;
+
+    @media (width >= 768px) {
+      font-size: 18px;
+      margin-bottom: 80px;
+    }
+  }
+
+  &__scheme {
+    margin-bottom: 40px;
+
+    @media (width >= 1024px) {
+      margin-bottom: 80px;
+    }
+
+    &-steps {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+
+      flex-direction: column;
+      align-items: center;
+
+      @media (width >=992px) {
+        flex-direction: row;
+        align-items: stretch;
+      }
+    }
+
+    &-step::after {
+      content: '';
+      position: absolute;
+      border: 2px solid var(--stepBorder);
+      left: -20px;
+      opacity: 0;
+      right: -20px;
+      top: -20px;
+      bottom: -20px;
+      border-radius: 50%;
+      animation: pulse 2.5s linear infinite;
+      animation-delay: 1.25s;
+    }
+
+    &-inner {
+      font-size: 16px;
+      width: 209px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 20px 0;
+    }
+
+    &-txt {
+      width: 100%;
+      max-width: 189px;
+      text-align: center;
+
+      margin: 0;
+      padding-bottom: 20px;
+      font-size: 16px;
+      line-height: 1.2;
+
+      @media (width >=992px) {
+        padding: 0;
+      }
+    }
+
+    &-step {
+      position: relative;
+      width: 100px;
+      height: 100px; // Фиксированная высота и ширина для иконки
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background-color: var(--stepBg);
+      border: 4px solid var(--stepBorder);
+      flex-shrink: 0; // Иконка не будет сжиматься
+    }
+
+    &-inner::after {
+      content: '';
+
+      height: 10px;
+      background-image: url('../images/icons/dots.svg');
+      background-repeat: repeat-x;
+      transform: translateY(-50%);
+
+      width: 60px;
+      right: unset;
+      transform: rotate(90deg);
+      top: 15px;
+      position: relative;
+
+      @media (width >=992px) {
+        position: absolute;
+        top: 53px;
+        right: -71px;
+        width: 110px;
+        transform: rotate(0);
+      }
+    }
+
+    &-inner:last-child::after {
+      content: none;
+    }
+  }
+}
+
+.form {
+  &__data {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+
+    @media (width >= 992px) {
+      flex-direction: row;
+    }
+
+    @media (width >=1200px) {
+      justify-content: flex-start;
+    }
+  }
+
+  &__input {
+    max-width: 370px;
+    width: 100%;
+    padding: 12px 12px 12px 10px;
+    height: 48px;
+    border-radius: 3px;
+    outline: 0;
+    color: var(--inputColor);
+    background: rgba(255, 255, 255, 0.85);
+    font-size: 18px;
+    border: 2px solid transparent;
+
+    &:focus {
+      border: 2px solid var(--blueGeneral);
+    }
+
+    &::placeholder {
+      color: var(--inputColor);
+    }
+
+    &::-webkit-input-placeholder {
+      color: var(--inputColor);
+    }
+
+    &:-moz-placeholder {
+      color: var(--inputColor);
+    }
+
+    &::-moz-placeholder {
+      color: var(--inputColor);
+    }
+
+    &:-ms-input-placeholder {
+      color: var(--inputColor);
+    }
+  }
+  &__select {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 370px;
+    justify-content: center;
+
+    &-head {
+      display: inline-flex;
+      align-items: center;
+      max-width: 370px;
+      width: 100%;
+      border-radius: 3px;
+      background: rgba(255, 255, 255, 0.85);
+      padding: 12px 35px 12px 10px;
+      height: 48px;
+      font-size: 18px;
+      text-align: left;
+      line-height: 18px;
+      color: #272733;
+      cursor: pointer;
+      position: relative;
+
+      @media (min-width: 799px) {
+        max-width: 770px;
+      }
+
+      &::after {
+        width: 20px;
+        height: 20px;
+        background: url('../images/icons/arrow.svg') no-repeat center / cover;
+        position: absolute;
+        right: 20px;
+        bottom: 50%;
+        transform: translateY(50%);
+        content: '';
+        display: block;
+        transition: 0.2s ease-in;
+      }
+
+      &.open {
+        background: rgba(61, 64, 80, 0.85);
+        color: var(--white);
+      }
+
+      &.open::after {
+        transform: translateY(50%) rotate(360deg);
+        background-image: url('../images/icons/icon-white.svg');
+      }
+    }
+
+    &-list {
+      display: none;
+      position: absolute;
+      max-width: 370px;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: #272733;
+      border-radius: 3px;
+      margin-top: 5px;
+      max-height: 175px;
+      overflow-x: hidden;
+      overflow-y: auto;
+      z-index: 100;
+      margin: 0;
+      padding: 0;
+      font-size: 14px;
+      color: var(--white);
+      overscroll-behavior: contain;
+      margin: 0 auto;
+
+      &::-webkit-scrollbar {
+        width: 7px;
+        background-color: #3d4050;
+        padding: 5px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        border-radius: 3px;
+        background-color: #42a9ed;
+      }
+    }
+    &-item {
+      position: relative;
+      text-align: left;
+      padding: 10px;
+      cursor: pointer;
+      list-style-type: none;
+      font-size: 18px;
+
+      @media (hover: hover) {
+        &:hover {
+          color: #42a9ed;
+        }
+      }
+    }
+  }
+
+  &__range {
+    margin-bottom: 40px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+
+    @media (width >= 992px) {
+      align-items: flex-end;
+      flex-direction: row;
+    }
+
+    @media (width >=1200px) {
+      justify-content: flex-start;
+    }
+
+    &-cont {
+      text-align: left;
+      position: relative;
+    }
+    &-txt {
+      margin-bottom: 20px;
+      font-size: 18px;
+    }
+
+    &-value {
+      position: absolute;
+      right: 0;
+      top: 24px;
+      font-size: 15px;
+
+      @media (width >= 992px) {
+        top: 0;
+      }
+    }
+
+    &-input {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 6px;
+      border-radius: 5px;
+      background: rgba(255, 255, 255, 0.7);
+      outline: none;
+      opacity: 0.7;
+      -webkit-transition: 0.2s;
+      transition: opacity 0.2s;
+
+      @media (width >= 992px) {
+        min-width: 770px;
+      }
+
+      @media (width >= 1024px) {
+        min-width: 770px;
+      }
+
+      &:hover {
+        opacity: 1;
+      }
+
+      &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background: #42a9ed;
+        border: 4px solid #286690;
+        cursor: pointer;
+      }
+
+      &::-moz-range-thumb {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background: #42a9ed;
+        border: 4px solid #286690;
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__choose {
+    position: relative;
+    display: contents;
+
+    @media (hover: hover) {
+      &:hover span {
+        background: rgba(255, 255, 255, 0.85);
+      }
+    }
+
+    span {
+      position: relative;
+      cursor: pointer;
+      display: inline-flex;
+      outline: none;
+      text-transform: uppercase;
+      font-size: 15px;
+      color: var(--inputColor);
+      font-weight: 600;
+      text-align: center;
+      border-radius: 4px;
+      background-color: var(--white);
+      padding: 10px;
+      max-width: 370px;
+      width: 100%;
+      height: 48px;
+      margin: 0;
+      transition: background-color 0.2s;
+
+      &::before {
+        position: absolute;
+        content: '';
+        background-image: url('../images/icons/file.svg');
+        background-repeat: no-repeat;
+        width: 20px;
+        height: 20px;
+        left: 35px;
+        top: 14px;
+
+        @media (width >=992px) {
+          left: 85px;
+        }
+      }
+    }
+
+    input[type='file'] {
+      position: absolute;
+      z-index: -1;
+      opacity: 0;
+      display: block;
+      width: 0;
+      height: 0;
+    }
+
+    &:active span {
+      background: rgba(255, 255, 255, 0.85);
+    }
+  }
+}

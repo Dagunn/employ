@@ -1,0 +1,47 @@
+.hidden {
+  display: none;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mb70 {
+  margin-bottom: 70px;
+}
+
+.active {
+  color: var(--bluePrimary);
+}
+
+.show {
+  display: block;
+}
+
+.rotate {
+  transform: rotate(180deg);
+}
+
+.fixed-burger {
+  position: fixed;
+  top: 40px;
+  left: 90%;
+}
+
+.blueGeneral {
+  color: var(--blueGeneral);
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  display: none;
+}
+
+.invalid {
+  border: 2px solid red !important;
+}
+
+.valid {
+  border: 2px solid green !important;
+}
